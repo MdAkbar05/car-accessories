@@ -1,0 +1,17 @@
+export default function HorizontalAdsBanner() {
+  return (
+    <div
+      style={{
+        backgroundImage: "url(/assets/dummy/horizontalBanner.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+      className="px-8 py-8 h-72 rounded-xl my-8 flex justify-end items-start"
+    >
+      <span className="inline-block px-4 py-1 text-sm font-medium bg-yellow-400 text-gray-900 rounded-2xl">
+        Advertisement
+      </span>
+    </div>
+  );
+}

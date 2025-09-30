@@ -1,0 +1,41 @@
+"use client";
+import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+
+export default function ShopDropdown() {
+  const [dropdown, setDropdown] = useState(false);
+
+  return (
+    <div className="flexCenter gap-2 relative">
+      <button
+        onClick={() => setDropdown(!dropdown)}
+        className="flex gap-2 items-center"
+      >
+        <span>Shop</span>
+        <IoIosArrowDown
+          className={`transition-transform duration-300 ${
+            dropdown ? "rotate-0" : "-rotate-90"
+          }`}
+        />
+      </button>
+
+      {/* Dropdown */}
+      <div
+        className={`absolute top-8 left-0 z-10 bg-white border w-28 text-center rounded-md
+          transition-all duration-300 origin-top
+          ${
+            dropdown
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-90 pointer-events-none"
+          }
+        `}
+      >
+        <ul>
+          <li className="p-2 hover:bg-gray-100">Item 1</li>
+          <li className="p-2 hover:bg-gray-100">Item 2</li>
+          <li className="p-2 hover:bg-gray-100">Item 3</li>
+        </ul>
+      </div>
+    </div>
+  );
+}

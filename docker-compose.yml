@@ -1,0 +1,11 @@
+services:
+    nextjs:
+        build: .
+        container_name: ecomarch_platform
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/app
+            - /app/node_modules
+        environment:
+            - NODE_ENV=production
