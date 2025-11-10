@@ -1,4 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Filters from "@/components/Filters";
 import Accounts from "@/components/Layout/Header/Navbar/Accounts";
 import BrandLogo from "@/components/Layout/Header/Navbar/BrandLogo";
 import Search from "@/components/Layout/Header/Navbar/Search";
@@ -15,7 +16,9 @@ export default async function Navbar() {
       </div>
       <MdMenu className="sm:block md:hidden" size={32} />
       <div className="sm:hidden md:block flex-6/12 border ">
-        <Search>{/* <Filters /> */}</Search>
+        <Search>
+          <Filters />
+        </Search>
       </div>
       <div className="md:flex-3/12 ">
         <Accounts session={session} />
