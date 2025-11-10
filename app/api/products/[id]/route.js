@@ -20,7 +20,6 @@ export async function PUT(req, { params }) {
 
 export async function PATCH(req, { params }) {
   const { id } = await params;
-  console.log(id);
   const product = await prisma.product.findUnique({
     where: { id },
   });

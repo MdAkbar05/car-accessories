@@ -60,7 +60,6 @@ export async function POST(req) {
 export async function DELETE(req) {
   // get from formdata
   const body = await req.json();
-  console.log(body);
 
   const { userId, productId } = body;
 

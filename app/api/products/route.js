@@ -63,7 +63,6 @@ export async function POST(req) {
     const categoryId = formData.get("categoryId");
 
     const files = formData.getAll("images"); // multiple images
-    console.log(files);
 
     const uploadedImages = [];
     for (const file of files) {

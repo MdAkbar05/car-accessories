@@ -17,13 +17,11 @@ export default function ProductsPage() {
   };
 
   useEffect(() => {
-    console.log("reached");
     handleAdded();
   }, []);
 
   const handleDelete = async (id) => {
     const data = await deleteProductById(id);
-    console.log(data);
     handleAdded();
   };
 

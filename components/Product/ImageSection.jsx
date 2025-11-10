@@ -6,7 +6,6 @@ import { useRef, useState } from "react";
 import { AiOutlineZoomIn, AiOutlineZoomOut } from "react-icons/ai";
 
 export default function ImageSection({ images }) {
-  console.log(images);
   const [mainImage, setMainImage] = useState(images[0]);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });

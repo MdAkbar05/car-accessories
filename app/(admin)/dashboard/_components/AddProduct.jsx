@@ -92,9 +92,7 @@ export default function AddProductModal({
         method: "PUT",
         body: JSON.stringify(form),
       });
-      console.log(res);
       const data = await res.json();
-      console.log(data);
       setLoading(false);
       if (res.ok) {
         toast.success("Product added successfully");
@@ -112,13 +110,11 @@ export default function AddProductModal({
       for (const image of images) {
         fd.append("images", image); // image should be a File object
       }
-      console.log(fd);
       const res = await fetch("/api/products", {
         method: "POST",
         body: fd,
       });
       const data = await res.json();
-      console.log(data);
       setLoading(false);
       if (res.ok) {
         toast.success("Product added successfully");

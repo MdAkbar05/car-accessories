@@ -113,8 +113,6 @@ async function main() {
   ];
 
   await prisma.product.createMany({ data: products });
-
-  console.log("✅ Seeded 5 sample car products successfully.");
 }
 
 main()
