@@ -2,6 +2,7 @@
   "name": "e-commerce-platform",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
@@ -9,13 +10,21 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.11.0",
+    "@prisma/client": "^6.18.0",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.8.0",
     "next": "15.5.2",
+    "next-auth": "^4.24.11",
+    "prisma": "^6.18.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
     "react-slick": "^0.31.0",
     "react-speech-recognition": "^4.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

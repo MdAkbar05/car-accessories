@@ -35,7 +35,7 @@
 
 body{
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -61,4 +61,20 @@ select {
   font-size: 14px; /* keep same size */
   color: #2c2828cb !important; /* Tailwind blue-600 */
   opacity: 1;
+}
+
+/* // change scroll bar size color  */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #020a25;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 20px;
 }

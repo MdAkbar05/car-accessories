@@ -8,7 +8,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
-const VoiceTypingComponent = () => {
+const VoiceTypingComponent = ({ setVoiceTranscript }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const {
@@ -36,6 +36,7 @@ const VoiceTypingComponent = () => {
       SpeechRecognition.stopListening();
     } else {
       SpeechRecognition.startListening({ continuous: true });
+      setVoiceTranscript(transcript);
     }
   };
 

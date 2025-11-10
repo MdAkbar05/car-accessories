@@ -6,12 +6,15 @@ export const metadata = {
   description: "A modern e-commerce platform for online shopping.",
 };
 
-export default function HomeLayout({ children }) {
+export default function HomeLayout({ children, modal }) {
   return (
     <>
       <Header />
 
-      <main className="container mx-auto">{children}</main>
+      <main className="container mx-auto px-2">
+        {" "}
+        {modal} {children}
+      </main>
       <Footer />
     </>
   );

@@ -1,30 +1,36 @@
-import product1 from "@/public/assets/dummy/product-1.jpg";
+import { getProducts } from "@/lib/getProducts";
 import Image from "next/image";
 
-export default function MiniProductCard({ title }) {
+export default async function MiniProductCard({ title }) {
+  const products = await getProducts({
+    filter: title == "Most Viewed" ? "mostViewed" : "topSell",
+  });
   return (
     <section className="space-y-4 py-2">
       <h2 className="text-2xl font-bold">{title}</h2>
       <hr className="border border-border" />
       <div className="space-y-8">
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
+        {products.slice(0, 3).map((product) => (
+          <MiniCard key={product.id} product={product} />
+        ))}
       </div>
     </section>
   );
 }
 
-const MiniCard = () => {
+const MiniCard = ({ product }) => {
   return (
     <div className="flex justify-start items-center gap-4">
-      <Image src={product1} alt="Product Image" width={100} height={100} />
+      <Image
+        src={product?.images[0]}
+        alt={product?.name}
+        width={100}
+        height={100}
+      />
       <div className="space-y-2">
-        <h2 className="text-xl ">
-          All star Performance 16 Grit 7 in OD Nail Head Tire
-        </h2>
-        <p className="text-gray-600">Brand: Dunlop</p>
-        <p>$300</p>
+        <h2 className="text-xl ">{product?.name}</h2>
+        <p className="text-gray-600">Brand: {product?.brand}</p>
+        <p>${product?.price}</p>
       </div>
     </div>
   );

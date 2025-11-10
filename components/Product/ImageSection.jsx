@@ -3,20 +3,11 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 // Example product images
-import product2 from "@/public/assets/dummy/heroBanner.jpg";
-import product1 from "@/public/assets/dummy/product-1.jpg";
-import product3 from "@/public/assets/dummy/product-3.jpg";
 import { AiOutlineZoomIn, AiOutlineZoomOut } from "react-icons/ai";
 
-export default function ImageSection() {
-  const images = [
-    { id: 1, src: product1, alt: "Product Image 1" },
-    { id: 2, src: product2, alt: "Product Image 2" },
-    { id: 3, src: product3, alt: "Product Image 3" },
-    { id: 4, src: product3, alt: "Product Image 4" },
-  ];
-
-  const [mainImage, setMainImage] = useState(images[0].src);
+export default function ImageSection({ images }) {
+  console.log(images);
+  const [mainImage, setMainImage] = useState(images[0]);
   const [zoom, setZoom] = useState(1);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
@@ -94,18 +85,18 @@ export default function ImageSection() {
 
       {/* Thumbnails */}
       <div className="flex gap-5">
-        {images.map((img) => (
+        {images.map((img, id) => (
           <button
-            key={img.id}
-            onClick={() => setMainImage(img.src)}
+            key={id}
+            onClick={() => setMainImage(img)}
             className={`relative h-20 w-20 border rounded-lg overflow-hidden transition-all duration-300
               ${
-                mainImage.src === img.src
+                mainImage === img
                   ? "ring-2 ring-blue-500 scale-105"
                   : "hover:scale-105"
               }`}
           >
-            <Image src={img.src} alt={img.alt} fill className="object-cover" />
+            <Image src={img} alt={img} fill className="object-cover" />
           </button>
         ))}
       </div>

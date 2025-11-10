@@ -21,7 +21,7 @@ export default function ShopDropdown() {
 
       {/* Dropdown */}
       <div
-        className={`absolute top-8 left-0 z-10 bg-white border w-28 text-center rounded-md
+        className={`absolute top-8 left-0 z-10 bg-white border w-fit text-center rounded-md
           transition-all duration-300 origin-top
           ${
             dropdown
@@ -30,10 +30,10 @@ export default function ShopDropdown() {
           }
         `}
       >
-        <ul>
-          <li className="p-2 hover:bg-gray-100">Item 1</li>
-          <li className="p-2 hover:bg-gray-100">Item 2</li>
-          <li className="p-2 hover:bg-gray-100">Item 3</li>
+        <ul className="whitespace-nowrap">
+          <li className="p-2 hover:bg-gray-100">Parts</li>
+          <li className="p-2 hover:bg-gray-100">Accessories</li>
+          <li className="p-2 hover:bg-gray-100">Second Hand</li>
         </ul>
       </div>
     </div>

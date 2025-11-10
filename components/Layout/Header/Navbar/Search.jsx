@@ -1,81 +1,53 @@
 "use client";
-import FindProduct from "@/components/FindProduct";
 import VoiceTypingComponent from "@/components/VoiceTypingSpeech";
 import filter from "@/public/assets/icons/filter.svg";
 
-import FilterProducts from "@/utils/FilterProducts";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { BiCategory } from "react-icons/bi";
+import { IoIosArrowDown, IoMdSearch } from "react-icons/io";
 import GalleryUpload from "./GalleryUpload";
 
-const productsData = [
-  {
-    id: 1,
-    name: "car",
-    category: "car",
-    brand: "toyota",
-    model: "2023",
-    engine: "1500cc",
-    budget: "10k-20k",
-  },
-  {
-    id: 2,
-    name: "bike",
-    category: "bike",
-    brand: "honda",
-    model: "2024",
-    engine: "1000cc",
-    budget: "under-10k",
-  },
-  {
-    id: 3,
-    name: "truck",
-    category: "truck",
-    brand: "ford",
-    model: "2022",
-    engine: "2000cc",
-    budget: "20k-30k",
-  },
-];
-export default function Search() {
-  const [products, setProducts] = useState(productsData);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+export default function Search({ children }) {
+  // get query from useSearchParams
+  const searchParams = useSearchParams();
   const router = useRouter();
+  const [voiceTranscript, setVoiceTranscript] = useState("");
   const [showFilters, setShowFilters] = useState(false);
+  const [categories, setCategories] = useState([]);
   const [dropdown, setDropdown] = useState(false);
   const [filters, setFilters] = useState({
-    category: "",
-    brand: "",
-    model: "",
-    engine: "",
-    budget: "",
-    query: "",
+    category: searchParams.get("category") || "",
+    brand: searchParams.get("brand") || "",
+    model: searchParams.get("model") || "",
+    engine: searchParams.get("engine") || "",
+    budget: searchParams.get("budget") || "",
+    query: searchParams.get("query") || "",
   });
 
   const handleChange = (e) => {
+    if (e.target.name === "query" && voiceTranscript)
+      setFilters({ ...filters, [e.target.name]: voiceTranscript });
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
-  console.log(filters);
-  const handleFilterProducts = (filters) => {
-    const filtered = FilterProducts(products, filters);
-    setFilteredProducts(filtered);
-  };
+
+  useEffect(() => {
+    fetch("/api/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    handleFilterProducts(filters);
-    //if filter in backend using query params
-    // Build query string only for non-empty values
     const query = Object.entries(filters)
       .filter(([_, value]) => value !== "")
       .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
       .join("&");
 
-    router.push(`/?${query}`);
+    router.push(`/products?${query}`);
     // or send api request for query search
   };
 
@@ -91,18 +63,32 @@ export default function Search() {
                 setDropdown(!dropdown);
                 setFilters({ ...filters, category: filters.category });
               }}
-              className="flexCenter gap-4"
+              className="flexCenter gap-4 hover:bg-slate-200 px-3 py-2 rounded-lg transition-all duration-300"
             >
-              <span>{filters.category ? filters.category : "Category"}</span>
+              <span>
+                {filters.category ? (
+                  filters.category
+                ) : (
+                  <BiCategory
+                    size={24}
+                    strokeWidth={0}
+                    className="text-black"
+                  />
+                )}
+              </span>
               <IoIosArrowDown
-                className={`transition-transform duration-300 ${
+                className={`transition-transform duration-300 text-2xl ${
                   dropdown ? "rotate-0" : "-rotate-90"
                 }`}
               />
             </button>
             {dropdown && (
               <div
-                className={`absolute top-12 -left-7 z-10 bg-white border w-64  p-4  rounded-md
+                className="fixed z-10 w-full right-0 top-0 bottom-0 mx-auto bg-black/20 p-4 "
+                onClick={() => setDropdown(false)}
+              >
+                <div
+                  className={`absolute top-24 left-96 z-10 bg-white border w-64  p-4  rounded-md
           transition-all duration-300 origin-top
           ${
             dropdown
@@ -110,47 +96,46 @@ export default function Search() {
               : "opacity-0 scale-95 pointer-events-none"
           }
         `}
-              >
-                <ul className="flex flex-col gap-2">
-                  <li
-                    className="px-3 py-1 transition-all ease-in-out hover:bg-gray-50 rounded-lg"
-                    onClick={() => setFilters({ ...filters, category: "car" })}
-                  >
-                    Tools and Equipment
-                  </li>
-                  <li
-                    className="px-3 py-1 transition-all ease-in-out hover:bg-gray-50 rounded-lg"
-                    onClick={() =>
-                      setFilters({ ...filters, category: "Lubricants" })
-                    }
-                  >
-                    Lubricants and Chemicals
-                  </li>
-                  <li
-                    className="px-3 py-1 transition-all ease-in-out hover:bg-gray-50 rounded-lg"
-                    onClick={() =>
-                      setFilters({ ...filters, category: "truck" })
-                    }
-                  >
-                    Office and Facility Supplies
-                  </li>
-                </ul>
+                >
+                  <ul className="flex flex-col gap-2">
+                    <li
+                      className="px-3 py-1 transition-all ease-in-out hover:bg-gray-50 rounded-lg"
+                      onClick={() => setFilters({ ...filters, category: "" })}
+                    >
+                      Category
+                    </li>
+                    {categories?.map((category) => (
+                      <li
+                        key={category.id}
+                        className="px-3 py-1 transition-all ease-in-out hover:bg-gray-50 rounded-lg"
+                        onClick={() =>
+                          setFilters({ ...filters, category: category.id })
+                        }
+                      >
+                        {category.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             )}
           </div>
         </div>
         <form onSubmit={handleSubmit} className="flex-9/12">
-          <input
-            className=" p-4 border-l border-border w-full focus:outline-none"
-            type="text"
-            name="query"
-            onChange={handleChange}
-            value={filters.query}
-            placeholder="🔍 Search for parts and accessories"
-          />
+          <div className=" flexCenter gap-2 p-4 border-l border-border w-full">
+            <IoMdSearch size={24} color="gray" />
+            <input
+              className="  focus:outline-none  w-full"
+              type="text"
+              name="query"
+              onChange={handleChange}
+              value={filters.query}
+              placeholder="Search for parts and accessories"
+            />
+          </div>
         </form>
         <div className="flex-2/12 flex gap-6">
-          <VoiceTypingComponent />
+          <VoiceTypingComponent setVoiceTranscript={setVoiceTranscript} />
           <GalleryUpload />
           <Image
             onClick={() => setShowFilters((prev) => !prev)}
@@ -164,12 +149,16 @@ export default function Search() {
 
       {/* Filter Component Toggle */}
       {showFilters && (
-        <div className="absolute top-28 z-50">
-          <FindProduct
-            key={Math.random()}
-            onHandleFilter={handleFilterProducts}
-            parentFilter={filters}
-          />
+        <div
+          className="fixed top-0 left-0 w-full h-full z-50 bg-black/10"
+          onClick={() => setShowFilters(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="absolute top-28 right-96 z-50"
+          >
+            {children}
+          </div>
         </div>
       )}
     </>

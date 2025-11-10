@@ -1,4 +1,6 @@
+import { SessionProviders } from "@/provider/SessionProvider";
 import { Hind_Siliguri, Lato } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const lato = Lato({
@@ -27,7 +29,10 @@ export default function RootLayout({ children }) {
       <body
         className={` ${lato.className} ${hindSiliguri.variable} antialiased `}
       >
-        {children}
+        <SessionProviders>
+          <Toaster position="top-center" reverseOrder={false} />
+          {children}
+        </SessionProviders>
       </body>
     </html>
   );

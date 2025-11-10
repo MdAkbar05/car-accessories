@@ -3,8 +3,10 @@ import DiscountBanner from "@/components/Home/NewArrivals.jsx/DiscountBanner";
 import SectionHeader from "@/components/Layout/SectionHeader";
 import ProductCard from "@/components/ProductCard";
 import SpecialCollectionCard from "@/components/SpecialCollectionCard";
+import { getProducts } from "@/lib/getProducts";
 
-export default function NewArrivals() {
+export default async function NewArrivals() {
+  const products = await getProducts({ filter: "newArrival" });
   return (
     <section className="flex justify-start gap-4 my-12 flex-wrap">
       <div className="flex-3/12 space-y-8 ">
@@ -24,9 +26,9 @@ export default function NewArrivals() {
         <div className="my-8 space-y-4">
           <SectionHeader title="New Arrivals" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 content-center ">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products.slice(0, 3).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </div>
         <SpecialCollectionCard

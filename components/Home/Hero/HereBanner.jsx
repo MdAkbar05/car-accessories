@@ -1,10 +1,12 @@
 "use client";
 
-export default function HeroBanner() {
+import Link from "next/link";
+
+export default function HeroBanner({ url, alt, discount, navigate }) {
   return (
     <div
       style={{
-        backgroundImage: "url(/assets/dummy/heroBanner.jpg)",
+        backgroundImage: `url(${url})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -14,7 +16,7 @@ export default function HeroBanner() {
       <div className="md:space-y-8 sm:space-y-2">
         <div className="space-y-4">
           <span className="inline-block px-4 py-1 text-sm font-medium bg-yellow-400 text-gray-900 rounded-2xl">
-            Best Selling
+            {alt}
           </span>
 
           {/* Heading */}
@@ -26,13 +28,17 @@ export default function HeroBanner() {
 
         {/* Discount text */}
         <p className="text-lg ">
-          Offering up to <span className="font-medium">27% Discount</span>
+          Offering up to{" "}
+          <span className="font-medium">${discount} Discount</span>
         </p>
 
         {/* Button */}
-        <button className="md:px-6 sm:px-3 sm:py-1 md:py-3 bg-primary text-white rounded-4xl shadow hover:bg-blue-700 transition cursor-pointer">
+        <Link
+          href={navigate}
+          className="md:px-6 sm:px-3 sm:py-1 md:py-3 bg-primary text-white rounded-4xl shadow hover:bg-blue-700 transition cursor-pointer"
+        >
           View Products
-        </button>
+        </Link>
       </div>
     </div>
   );

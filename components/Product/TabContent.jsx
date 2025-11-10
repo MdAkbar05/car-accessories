@@ -1,24 +1,24 @@
 "use client";
 import { useState } from "react";
 
-export default function TabContent(props) {
+export default function TabContent({ product }) {
   const [activeTab, setActiveTab] = useState("tab1");
 
   const tabs = [
     {
       id: "tab1",
       label: "Description",
-      content: <Description />,
+      content: <Description desc={product?.description} />,
     },
     {
       id: "tab2",
       label: "Specification",
-      content: <Specification />,
+      content: <Specification spec={product?.specification} />,
     },
     {
       id: "tab3",
-      label: "Reviews (2)",
-      content: <Review />,
+      label: `Reviews ${product?.reviews?.length || 0}`,
+      content: <Review reviews={product?.reviews} />,
     },
     {
       id: "tab4",
@@ -67,37 +67,26 @@ export default function TabContent(props) {
   );
 }
 
-const Review = () => {
+const Review = ({ reviews }) => {
   return (
     <>
-      <p>Review</p>
+      {reviews?.map((r) => (
+        <p className="p-2">{r.comment}</p>
+      ))}
     </>
   );
 };
-const Description = () => {
+const Description = ({ desc }) => {
   return (
     <>
-      <p>
-        Welcome to our premier retail and online shop, your ultimate destination
-        for leading batteries, car care kits, and engine parts in Bangladesh. We
-        are proud to offer an extensive range of top-quality products that cater
-        to the needs of vehicle owners, enthusiasts, and professionals alike.{" "}
-        <br /> <br />
-        At our store, you’ll find an impressive selection of batteries from
-        renowned brands, ensuring reliable power solutions for all types of
-        vehicles. Whether you drive a car, motorcycle, or even a heavy-duty
-        vehicle, we have the perfect battery to meet your requirements. Our
-        range encompasses various battery technologies, including
-        maintenance-free, deep-cycle, and high-performance options, allowing you
-        to choose the ideal power source for your specific needs.
-      </p>
+      <p>{desc}</p>
     </>
   );
 };
-const Specification = () => {
+const Specification = ({ spec }) => {
   return (
     <>
-      <p>Review</p>
+      <p>{spec}</p>
     </>
   );
 };

@@ -18,5 +18,5 @@
     "source.fixAll.tslint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "cSpell.words": ["accesories"]
+  "cSpell.words": ["accesories", "signup"]
 }

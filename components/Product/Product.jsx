@@ -1,54 +1,95 @@
+"use client";
 import { FaStar } from "react-icons/fa";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdDoneAll, IoMdHeartEmpty } from "react-icons/io";
 import { IoGitCompareOutline, IoWarning } from "react-icons/io5";
 import { VscSend } from "react-icons/vsc";
 
+import { addWishlist } from "@/lib/wishlistAction";
+import useCartStore from "@/store/cartStore";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import ImageSection from "./ImageSection";
+import ReviewForm from "./ReviewForm";
 
-export default function Product() {
+export default function Product({ product }) {
+  const router = useRouter();
+  const { addToCart, cartItems } = useCartStore((state) => state);
+  const item = cartItems.find((item) => item.id === product.id);
+
   return (
     <section className="space-y-4 mt-8 mb-20 flex items-center justify-between">
-      <ImageSection />
+      <ImageSection images={product?.images} />
       <div className="flex-8/12 px-10">
         <div className="space-y-3">
-          <p className="text-lg text-primary">Auto Parts</p>
-          <h2 className="text-4xl font-semibold">
-            Allstar Performance 16 Grit 7 in OD Nail Head Tire
-          </h2>
-          <p className="text-gray-300">Brand: Dunlop</p>
+          <p className="text-lg text-primary">{product?.category?.name}</p>
+          <h2 className="text-4xl font-semibold">{product?.name}</h2>
+          <p className="text-gray-300">Brand: {product?.brand}</p>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-semibold flex">
-              <FaStar color="orange" size={18} />
-              <FaStar color="orange" size={18} />
-              <FaStar color="orange" size={18} />
-              <FaStar color="gray" size={18} />
-              <FaStar color="gray" size={18} />
+              {Array(product?.reviews?.length)
+                .fill()
+                .map((_, i) => (
+                  <FaStar key={i} className="text-yellow-400" size={18} />
+                ))}
+              {Array(5 - product?.reviews?.length || 0)
+                .fill()
+                .map((_, i) => (
+                  <FaStar key={i} className="text-gray-400" size={18} />
+                ))}
             </span>
             <span className="text-black text-lg font-bold">
-              4.8 <span className="text-gray-400">(289)</span>
+              {product?.reviews?.length > 0
+                ? product?.reviews
+                    ?.map((r) => r.rating)
+                    .reduce((a, b) => a + b, 0) / product?.reviews?.length
+                : 5}
+              <span className="text-gray-400 ml-2">
+                ({product?.reviews?.length || 0} reviews)
+              </span>
             </span>
-            <span>2477 reviews</span>
           </div>
           <div className="flex gap-2 items-center">
-            <p className="line-through text-gray-400">$300</p>
-            <h2 className="text-3xl font-semibold">$764</h2>
+            {/* Discount 5% off  */}
+            <h2 className="text-3xl font-semibold">
+              ${Number(product?.price * 0.95).toFixed(2)}
+            </h2>
+            <p className="line-through text-gray-400">${product?.price}</p>
           </div>
-          <p className="text-red-500 flex items-center text-lg gap-2">
-            <IoWarning size={24} /> <span>Limited quantity available</span>
-          </p>
+          {product?.stock ? (
+            <p className="text-green-500 flex items-center text-lg gap-2">
+              <IoMdDoneAll size={24} /> <span> {product?.stock} Available</span>
+            </p>
+          ) : (
+            <p className="text-red-500 flex items-center text-lg gap-2">
+              <IoWarning size={24} /> <span>Out of stock</span>
+            </p>
+          )}
+
           <div className="flex gap-4 py-8">
             <p className="flex items-center gap-2">
               <IoGitCompareOutline color="gray" size={24} />
               <span>Add to compare</span>
             </p>
-            <p className="flex items-center gap-2">
+            <p
+              className="flex items-center gap-2 cursor-pointer hover:bg-amber-400 p-1 rounded-lg"
+              onClick={() => addWishlist(product)}
+            >
               <IoMdHeartEmpty color="gray" size={24} />
               <span>Add to wishlist</span>
             </p>
           </div>
-          <button className="bg-transparent border border-primary text-black hover:bg-primary hover:text-white transition-all p-3 rounded-lg inline-flex cursor-pointer">
-            Submit Review
+          {/* Add to cart  button */}
+          <button
+            className=" bg-primary border border-primary  text-white hover:bg-transparent hover:text-primary transition-all p-3 rounded-lg w-36 text-center cursor-pointer whitespace-nowrap"
+            onClick={() => {
+              addToCart(product);
+              toast.success("Added to cart");
+              router.push("/cart");
+            }}
+          >
+            Add to cart ({item?.quantity})
           </button>
+          <ReviewForm productId={product?.id} />
         </div>
       </div>
       <div className="border border-border rounded-lg p-6 space-y-8">
