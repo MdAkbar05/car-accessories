@@ -13,7 +13,7 @@ export default function CategoryCard() {
         <p className="text-gray-600">Performance</p>
         <p className="text-gray-600">Starting & Charging</p>
         <Link
-          href={"/shop"}
+          href={"/products"}
           className="flex gap-2 font-bold text-primary text-xl "
         >
           <span>View All</span>
