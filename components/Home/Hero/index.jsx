@@ -1,7 +1,7 @@
+import Breadcrumbs from "@/components/Home/Hero/Breadcrumbs";
+import CategoriesDropdown from "@/components/Home/Hero/CategoriesDropdown";
+import HeroBanner from "@/components/Home/Hero/HereBanner";
 import BannerSlider from "@/components/Layout/Slider";
-import Breadcrumbs from "./Breadcrumbs";
-import CategoriesDropdown from "./CategoriesDropdown";
-import HeroBanner from "./HereBanner";
 
 export default function Hero() {
   return (

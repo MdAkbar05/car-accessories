@@ -1,16 +1,11 @@
 import DropdownMenu from "@/components/Home/Hero/dropdownMenu";
+import { getCategories } from "@/lib/getCategories";
 import downArrow from "@/public/assets/icons/down-arrow.svg";
 import racing from "@/public/assets/icons/racing.svg";
 import Image from "next/image";
 import Link from "next/link";
 export default async function CategoriesDropdown() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL
-      ? `${process.env.VERCEL_URL}`
-      : "http://localhost:3000";
-  const categories = await fetch(`${baseUrl}/api/categories`).then((res) =>
-    res.json()
-  );
+  const categories = await getCategories();
 
   return (
     <div className="sm:hidden md:block border text-black flex-2/12 h-fit">
