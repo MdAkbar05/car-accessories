@@ -1,3 +1,5 @@
+import { prisma } from "@/lib/prisma";
+
 const { NextResponse } = require("next/server");
 
 export async function PUT(req, { params }) {
