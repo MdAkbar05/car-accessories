@@ -1,4 +1,3 @@
-import Filters from "@/components/Filters";
 import Benefits from "@/components/Home/Benefits";
 import Categories from "@/components/Home/Categories";
 import Hero from "@/components/Home/Hero";
@@ -12,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Filters />
+      {/* <Filters /> */}
       <HorizontalAdsBanner />
       <LatestDeal />
       <NewArrivals />
