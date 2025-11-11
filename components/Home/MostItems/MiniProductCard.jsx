@@ -1,5 +1,6 @@
 import { getProducts } from "@/lib/getProducts";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function MiniProductCard({ title }) {
   const products = await getProducts({
@@ -20,7 +21,10 @@ export default async function MiniProductCard({ title }) {
 
 const MiniCard = ({ product }) => {
   return (
-    <div className="flex justify-start items-center gap-4">
+    <Link
+      href={`/products/${product?.id}`}
+      className="flex justify-start items-center gap-4 border-b border-gray-400"
+    >
       <Image
         src={product?.images[0]}
         alt={product?.name}
@@ -32,6 +36,6 @@ const MiniCard = ({ product }) => {
         <p className="text-gray-600">Brand: {product?.brand}</p>
         <p>${product?.price}</p>
       </div>
-    </div>
+    </Link>
   );
 };

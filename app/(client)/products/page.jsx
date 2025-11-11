@@ -1,5 +1,5 @@
+import ProductList from "@/app/(client)/products/ProductList";
 import { getProducts } from "@/lib/getProducts";
-import ProductList from "./ProductList";
 
 export default async function ProductsPage(params) {
   const { searchParams } = await params;
