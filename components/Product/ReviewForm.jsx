@@ -4,7 +4,11 @@ import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 export default function ReviewForm({ productId }) {
-  const [form, setForm] = useState({ rating: 0, comment: "" });
+  const [form, setForm] = useState({
+    productId: productId,
+    rating: 0,
+    comment: "",
+  });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -15,15 +19,10 @@ export default function ReviewForm({ productId }) {
     setError("");
 
     try {
-      const formData = new FormData();
-      formData.append("productId", productId);
-      formData.append("rating", form.rating);
-      formData.append("comment", form.comment);
-
-      const result = await submitReview(formData);
+      const result = await submitReview(form);
       if (result?.success) {
         setSuccess(true);
-        setForm({ rating: 0, comment: "" });
+        setForm({ rating: 0, comment: "", productId: productId });
       }
     } catch (err) {
       setError(err.message || "Something went wrong");
@@ -33,10 +32,7 @@ export default function ReviewForm({ productId }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-lg shadow-md space-y-4"
-    >
+    <form onSubmit={handleSubmit} className="bg-white   space-y-4">
       <h3 className="text-2xl font-semibold text-primary">Write a Review</h3>
 
       <div className="flex gap-2">

@@ -124,5 +124,6 @@ Copy code
 ---
 
 
-
-step-3 update mini card with button
+1- more error handling and not found page
+2- necessary responsive design for mobile
+3- Route Guard for logout user like checkout page dashboard page

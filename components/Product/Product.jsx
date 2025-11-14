@@ -1,23 +1,37 @@
 "use client";
 import { FaStar } from "react-icons/fa";
-import { IoMdDoneAll, IoMdHeartEmpty } from "react-icons/io";
+import { IoMdDoneAll } from "react-icons/io";
 import { IoGitCompareOutline, IoWarning } from "react-icons/io5";
 import { VscSend } from "react-icons/vsc";
 
-import { addWishlist } from "@/lib/wishlistAction";
+import ImageSection from "@/components/Product/ImageSection";
+import ReviewForm from "@/components/Product/ReviewForm";
 import useCartStore from "@/store/cartStore";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import ImageSection from "./ImageSection";
-import ReviewForm from "./ReviewForm";
+import WishlistButton from "./WishlistButton";
 
 export default function Product({ product }) {
   const router = useRouter();
   const { addToCart, cartItems } = useCartStore((state) => state);
   const item = cartItems.find((item) => item.id === product.id);
+  let avgRating =
+    product?.reviews.reduce((sum, r) => sum + r.rating, 0) /
+    product?.reviews.length;
+
+  let whiteStar;
+  let yellowStar;
+
+  if (avgRating > 0) {
+    yellowStar = Math.floor(avgRating);
+    whiteStar = 5 - yellowStar;
+  } else {
+    yellowStar = 0;
+    whiteStar = 5;
+  }
 
   return (
-    <section className="space-y-4 mt-8 mb-20 flex items-center justify-between">
+    <section className="space-y-4 mt-6 mb-10 flex items-start justify-between">
       <ImageSection images={product?.images} />
       <div className="flex-8/12 px-10">
         <div className="space-y-3">
@@ -26,16 +40,20 @@ export default function Product({ product }) {
           <p className="text-gray-300">Brand: {product?.brand}</p>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-semibold flex">
-              {Array(product?.reviews?.length)
-                .fill()
-                .map((_, i) => (
-                  <FaStar key={i} className="text-yellow-400" size={18} />
-                ))}
-              {Array(5 - product?.reviews?.length || 0)
-                .fill()
-                .map((_, i) => (
-                  <FaStar key={i} className="text-gray-400" size={18} />
-                ))}
+              {product && (
+                <>
+                  {Array(yellowStar)
+                    .fill()
+                    .map((_, i) => (
+                      <FaStar key={i} className="text-yellow-400" size={18} />
+                    ))}
+                  {Array(whiteStar)
+                    .fill()
+                    .map((_, i) => (
+                      <FaStar key={i} className=" text-gray-400" size={18} />
+                    ))}
+                </>
+              )}
             </span>
             <span className="text-black text-lg font-bold">
               {product?.reviews?.length > 0
@@ -70,13 +88,7 @@ export default function Product({ product }) {
               <IoGitCompareOutline color="gray" size={24} />
               <span>Add to compare</span>
             </p>
-            <p
-              className="flex items-center gap-2 cursor-pointer hover:bg-amber-400 p-1 rounded-lg"
-              onClick={() => addWishlist(product)}
-            >
-              <IoMdHeartEmpty color="gray" size={24} />
-              <span>Add to wishlist</span>
-            </p>
+            <WishlistButton product={product} />
           </div>
           {/* Add to cart  button */}
           <button

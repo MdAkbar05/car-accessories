@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SpecialCollectionCard({ bannerUrl }) {
   return (
     <div
@@ -13,9 +15,12 @@ export default function SpecialCollectionCard({ bannerUrl }) {
         <p className="text-lg text-primary uppercase">Special Collection</p>
         <h1 className="text-3xl font-bold">Interior Accessories</h1>
         <p className="text-lg font-medium">Don't miss the last opportunity</p>
-        <button className="bg-primary text-white px-10 py-2 rounded-full text-lg">
+        <Link
+          href="/products"
+          className="bg-primary text-white px-10 py-2 rounded-full text-lg"
+        >
           View
-        </button>
+        </Link>
       </div>
     </div>
   );

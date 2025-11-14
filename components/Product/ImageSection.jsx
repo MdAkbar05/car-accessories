@@ -95,7 +95,13 @@ export default function ImageSection({ images }) {
                   : "hover:scale-105"
               }`}
           >
-            <Image src={img} alt={img} fill className="object-cover" />
+            <Image
+              src={img}
+              alt={img}
+              fill
+              className="object-cover"
+              priority={true}
+            />
           </button>
         ))}
       </div>

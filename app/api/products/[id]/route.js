@@ -30,6 +30,10 @@ export async function PATCH(req, { params }) {
     const updatedProduct = await prisma.product.update({
       where: { id },
       data: { viewCount: product.viewCount + 1 },
+      include: {
+        category: true,
+        reviews: true,
+      },
     });
     return NextResponse.json(updatedProduct);
   } catch (error) {

@@ -1,6 +1,9 @@
+import Link from "next/link";
+
 export default function HorizontalAdsBanner() {
   return (
-    <div
+    <Link
+      href={"/products"}
       style={{
         backgroundImage: "url(/assets/dummy/horizontalBanner.jpg)",
         backgroundSize: "cover",
@@ -12,6 +15,6 @@ export default function HorizontalAdsBanner() {
       <span className="inline-block px-4 py-1 text-sm font-medium bg-yellow-400 text-gray-900 rounded-2xl">
         Advertisement
       </span>
-    </div>
+    </Link>
   );
 }

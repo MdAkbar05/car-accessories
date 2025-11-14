@@ -8,17 +8,19 @@ export default function TabContent({ product }) {
     {
       id: "tab1",
       label: "Description",
-      content: <Description desc={product?.description} />,
+      content: <Description key={product?.id} desc={product?.description} />,
     },
     {
       id: "tab2",
       label: "Specification",
-      content: <Specification spec={product?.specification} />,
+      content: (
+        <Specification key={product?.id} spec={product?.specification} />
+      ),
     },
     {
       id: "tab3",
       label: `Reviews ${product?.reviews?.length || 0}`,
-      content: <Review reviews={product?.reviews} />,
+      content: <Review key={product?.id} reviews={product?.reviews} />,
     },
     {
       id: "tab4",
@@ -59,7 +61,7 @@ export default function TabContent({ product }) {
                }
             `}
           >
-            <p className="p-2">{tab.content}</p>
+            {tab.content}
           </div>
         ))}
       </div>
@@ -71,7 +73,9 @@ const Review = ({ reviews }) => {
   return (
     <>
       {reviews?.map((r) => (
-        <p className="p-2">{r.comment}</p>
+        <p key={r.id} className="p-2">
+          {r.comment}
+        </p>
       ))}
     </>
   );
@@ -79,21 +83,21 @@ const Review = ({ reviews }) => {
 const Description = ({ desc }) => {
   return (
     <>
-      <p>{desc}</p>
+      <p className="p-2">{desc}</p>
     </>
   );
 };
 const Specification = ({ spec }) => {
   return (
     <>
-      <p>{spec}</p>
+      <p className="p-2">{spec}</p>
     </>
   );
 };
 const FAQ = () => {
   return (
     <>
-      <p>Review</p>
+      <p className="p-2">Review</p>
     </>
   );
 };

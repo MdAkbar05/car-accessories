@@ -6,7 +6,7 @@ import { getEngines } from "@/lib/getEngines";
 import { getModels } from "@/lib/getModels";
 import { useEffect, useState } from "react";
 
-export default function Filters({ parentFilter }) {
+export default function Filters({ parentFilter = false }) {
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);

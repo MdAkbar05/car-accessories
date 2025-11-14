@@ -56,9 +56,11 @@ export default function RecentOrder({ orders }) {
                 <td
                   className={`py-3 px-4 font-medium ${
                     order?.orderStatus === "shipped"
-                      ? "text-green-400"
+                      ? "text-blue-400"
                       : order?.orderStatus === "processing"
                       ? "text-yellow-400"
+                      : order?.orderStatus === "delivered"
+                      ? "text-green-400"
                       : "text-red-400"
                   }`}
                 >

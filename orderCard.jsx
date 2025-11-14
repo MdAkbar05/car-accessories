@@ -60,11 +60,11 @@ export default function OrderCard({ orders = [] }) {
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${
                       order.orderStatus === "shipped"
-                        ? "bg-green-100 text-green-700"
+                        ? "bg-green-100 text-blue-700"
                         : order.orderStatus === "processing"
                         ? "bg-yellow-100 text-yellow-700"
-                        : order.orderStatus === "Cancelled"
-                        ? "bg-red-100 text-red-700"
+                        : order.orderStatus === "delivered"
+                        ? "bg-red-100 text-green-700"
                         : "bg-gray-100 text-gray-600"
                     }`}
                   >

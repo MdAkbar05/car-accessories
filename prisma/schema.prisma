@@ -107,7 +107,7 @@ model Order {
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   products        Json     // store product details + qty here
   totalAmount     Float
-  paymentStatus   String   @default("pending")     // pending | paid | failed | refunded
+  paymentStatus   String   @default("unpaid") // paid | unpaid 
   orderStatus     String   @default("processing")  // processing | shipped | delivered | cancelled
   shippingAddress String
   phone           String?

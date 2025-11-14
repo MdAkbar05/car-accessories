@@ -13,7 +13,9 @@ export default async function ProfilePage() {
   const reviews = await res.json();
   const res2 = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders`);
 
-  const orders = await res2.json();
+  const data = await res2.json();
+
+  const orders = data.filter((order) => order.userId === session?.user?.id);
 
   if (!session) {
     return (
