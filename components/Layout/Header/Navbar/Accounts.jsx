@@ -57,11 +57,11 @@ export default function Accounts({ session }) {
           <SignoutButton />
         </div>
       ) : (
-        <div className="flex gap-6">
+        <div className="flex md:gap-6 sm:gap-2">
           <Image src={UserIcon} alt="UserIcon" width={24} height={24} />
           <Link href={"/login"} className="flex flex-col items-start">
-            <span className="text-lg text-gray-400 ">Sign in</span>
-            <span className="text-xl font-semibold">Account</span>
+            <span className="md:text-lg text-sm text-gray-400 ">Sign in</span>
+            <span className="text-base  md:text-xl font-semibold">Account</span>
           </Link>
         </div>
       )}

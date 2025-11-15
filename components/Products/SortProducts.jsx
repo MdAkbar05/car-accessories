@@ -7,7 +7,13 @@ export default function SortProducts() {
 
   const handleSortChange = (value) => {
     const newParams = new URLSearchParams(params.toString());
-    newParams.set("sort", value);
+    if (newParams.get("filter")) newParams.delete("filter");
+    if (newParams.get("sort")) newParams.delete("sort");
+    if (value == "topSell" || value == "mostViewed" || value == "newArrival") {
+      newParams.set("filter", value);
+    } else {
+      newParams.set("sort", value);
+    }
     router.push(`/products?${newParams.toString()}`);
   };
 

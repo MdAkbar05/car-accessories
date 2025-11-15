@@ -2,7 +2,7 @@ import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 export default function SocialMedia() {
   return (
-    <section className="py-20 flex justify-between gap-32">
+    <section className="py-20 flex sm:justify-center md:justify-between gap-32 sm:flex-col md:flex-row">
       <div className="space-y-4 flex-5/12 ">
         <p>
           At our store, you’ll find an impressive selection of batteries from
@@ -21,7 +21,7 @@ export default function SocialMedia() {
           </div>
         </div>
       </div>
-      <div className="space-y-4 flex-2/12">
+      <div className="sm:hidden md:block space-y-4 flex-2/12">
         <b>Company</b>
         <ul>
           <li>About us</li>
@@ -30,7 +30,7 @@ export default function SocialMedia() {
           <li>Terms & Conditions</li>
         </ul>
       </div>
-      <div className="space-y-4  flex-2/12">
+      <div className="sm:hidden md:block space-y-4  flex-2/12">
         <b>Help</b>
         <ul>
           <li>Payments</li>
@@ -39,7 +39,7 @@ export default function SocialMedia() {
           <li>FAQ</li>
         </ul>
       </div>
-      <div className="space-y-4 flex-2/12">
+      <div className="sm:hidden md:block space-y-4 flex-2/12">
         <b>Help</b>
         <ul>
           <li>Payments</li>

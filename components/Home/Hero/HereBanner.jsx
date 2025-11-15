@@ -11,7 +11,7 @@ export default function HeroBanner({ url, alt, discount, navigate }) {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="px-8 md:py-32 sm:py-4 md:rounded-xl md:w-auto sm:w-96 sm:h-64 md:h-auto "
+      className="sm:px-2 md:px-8 md:py-32 sm:py-4 md:rounded-xl md:w-auto sm:w-96 sm:h-64 md:h-auto "
     >
       <div className="md:space-y-8 sm:space-y-2">
         <div className="space-y-4">

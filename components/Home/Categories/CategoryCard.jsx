@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 export default function CategoryCard() {
   return (
-    <div className="flex justify-start items-center gap-4 border py-8 px-12">
+    <div className="flex justify-start items-center md:flex-row sm:flex-col gap-4 border py-8 px-12">
       <Image src={product1} alt="Product Image" width={200} height={200} />
       <div className="space-y-2">
         <h2 className="text-xl ">Parts & Accessories</h2>

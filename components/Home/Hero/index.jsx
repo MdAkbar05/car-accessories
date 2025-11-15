@@ -9,7 +9,7 @@ export default function Hero() {
       <CategoriesDropdown />
       <div className="flex-8/12">
         <Breadcrumbs />
-        <section className="sm:max-w-96 md:max-w-6xl mx-auto p-6 ">
+        <section className="sm:max-w-80 md:max-w-6xl mx-auto md:p-6 sm:p-1">
           <BannerSlider>
             <HeroBanner
               key={Math.random()}
