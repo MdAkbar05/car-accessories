@@ -60,7 +60,7 @@ export default function Accounts({ session }) {
         <Link href={"/login"} className="flex md:gap-6 sm:gap-2">
           <Image src={UserIcon} alt="UserIcon" width={24} height={24} />
           <div className="flex flex-col items-start">
-            <span className="md:text-lg text-sm text-gray-400 ">Sign in</span>
+            <span className="md:text-lg text-sm text-black ">Sign in</span>
             <span className="text-s   md:text-xl font-semibold">Account</span>
           </div>
         </Link>

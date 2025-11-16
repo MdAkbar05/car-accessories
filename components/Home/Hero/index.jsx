@@ -5,11 +5,11 @@ import BannerSlider from "@/components/Layout/Slider";
 
 export default function Hero() {
   return (
-    <div className="flex my-8 ">
+    <div className="lg:flex my-8 gap-2 ">
       <CategoriesDropdown />
       <div className="flex-8/12 ">
         <Breadcrumbs />
-        <section className="sm:max-w-80 md:max-w-6xl mx-auto  sm:p-1">
+        <section className="sm:max-w-80 md:max-w-3xl lg:max-w-[1110px]    sm:p-1">
           <BannerSlider>
             <HeroBanner
               key={Math.random()}

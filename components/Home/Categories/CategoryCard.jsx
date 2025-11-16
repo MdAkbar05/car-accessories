@@ -1,4 +1,4 @@
-import product1 from "@/public/assets/dummy/product-1.jpg";
+import product1 from "@/public/assets/dummy/product-1.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";

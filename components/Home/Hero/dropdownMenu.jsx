@@ -14,7 +14,7 @@ export default function DropdownMenu({ categories }) {
         e.stopPropagation();
         setDropdown(!dropdown);
       }}
-      className="flex justify-between border-b border-border px-6 py-3 bg-tertiary hover:bg-gray-50 cursor-pointer  "
+      className="flex justify-between border-b  rounded-t-xl border-border px-6 py-3 bg-tertiary hover:bg-gray-50 cursor-pointer  "
     >
       <div className="flex gap-x-4 relative justify-between  w-full">
         <div className="flex gap-x-4">

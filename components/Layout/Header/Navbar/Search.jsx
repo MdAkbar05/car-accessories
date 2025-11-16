@@ -58,6 +58,8 @@ export default function Search({ children }) {
           {/* Dropdown */}
           <div className="relative flexCenter gap-4 px-4 mx-3 py-2 rounded-xl cursor-pointer hover:bg-gray-50 ">
             <button
+              type="button"
+              title="Categories"
               onClick={(e) => {
                 e.stopPropagation();
                 setDropdown(!dropdown);

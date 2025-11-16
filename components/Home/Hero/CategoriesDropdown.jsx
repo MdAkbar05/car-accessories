@@ -8,7 +8,7 @@ export default async function CategoriesDropdown() {
   const categories = await getCategories();
 
   return (
-    <div className="sm:hidden md:block border text-black flex-2/12 h-fit">
+    <div className="sm:hidden lg:block border text-black flex-2/12 h-fit">
       <DropdownMenu categories={categories} />
       <div className="flex flex-col">
         {categories.map((category) => (
@@ -22,8 +22,10 @@ export default async function CategoriesDropdown() {
                 <Image
                   src={racing}
                   alt={category.name}
+                  aria-label="Categories"
                   width={24}
                   height={24}
+                  priority
                 />
                 <span>{category.name}</span>
               </div>

@@ -79,9 +79,3 @@ select {
   border-radius: 20px;
 }
 
-.slick-slide[aria-hidden="true"] a,
-.slick-slide[aria-hidden="true"] button,
-.slick-slide[aria-hidden="true"] *[tabindex] {
-  pointer-events: none;
-  tabindex: -1 !important;
-}

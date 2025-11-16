@@ -21,7 +21,7 @@ export default function BannerSlider({ children }) {
           bottom: "30px", // position dots lower
         }}
       >
-        <ul className="  flex justify-center gap-1">{dots}</ul>
+        <ul className="flex justify-center gap-1">{dots}</ul>
       </div>
     ),
     customPaging: (i) => (

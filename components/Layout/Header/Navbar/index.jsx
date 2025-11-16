@@ -11,16 +11,16 @@ export default async function Navbar() {
 
   return (
     <nav className="container mx-auto flex justify-between items-center text-black  px-2">
-      <div className="sm:hidden md:block flex-3/12 flex items-center ">
+      <div className="sm:hidden md:flex flex-3/12  items-center ">
         <BrandLogo />
       </div>
       <MobileNav />
-      <div className="sm:hidden lg:block flex-6/12 border ">
+      <div className="sm:hidden lg:block flex-6/12  ">
         <Search>
           <Filters />
         </Search>
       </div>
-      <div className="md:flex-3/12 ">
+      <div className="md:flex-3/12 flex justify-end ">
         <Accounts session={session} />
       </div>
     </nav>

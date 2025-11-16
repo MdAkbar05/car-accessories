@@ -7,7 +7,7 @@ export default function Breadcrumbs({ breadcrumbs = [] }) {
   const pathname = usePathname();
   return (
     <div className="sm:hidden md:block ">
-      <div className="inline-flex gap-6  px-6 py-2  text-gray-400 shadow-xs  shadow-slate-50 ">
+      <div className="inline-flex gap-6  px-6 py-2  text-gray-800 shadow-xs  shadow-slate-50 ">
         {breadcrumbs.length > 0 ? (
           breadcrumbs.map((breadcrumb, index) => (
             <div key={index} className="space-x-2">

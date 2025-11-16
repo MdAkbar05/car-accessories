@@ -4,6 +4,21 @@ import ProductFilters from "@/components/Products/ProductFilters";
 import SortProducts from "@/components/Products/SortProducts";
 import { getProducts } from "@/lib/getProducts";
 
+export async function generateMetadata({ params }) {
+  const { searchParams } = await params;
+  const products = await getProducts(searchParams);
+
+  return {
+    title: `Products | ${products.length} results`,
+    description: `Products | ${products.length} results`,
+    openGraph: {
+      images: `${process.env.NEXT_PUBLIC_BASE_URL}/api/og`,
+      width: 1200,
+      height: 600,
+    },
+  };
+}
+
 export default async function ProductsPage(params) {
   const { searchParams } = await params;
   const products = await getProducts(searchParams);

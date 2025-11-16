@@ -9,6 +9,7 @@ export default function ProductCard({ product }) {
         <Image
           src={product?.images[0]}
           alt={product?.name}
+          aria-label="product image"
           fill
           className="object-contain "
         />
@@ -42,12 +43,13 @@ export default function ProductCard({ product }) {
           <b className="text-2xl text-primary font-bold">
             ${product?.price * 0.8}
           </b>
-          <p className="line-through text-red-500">${product?.price}</p>
+          <p className="line-through text-red-600">${product?.price}</p>
         </div>
-        <p className="text-green-500">{product?.stock} in Stock</p>
+        <p className="text-black">{product?.stock} in Stock</p>
       </div>
       <Link
         href={`/products/${product?.id}`}
+        aria-label="product card"
         className="w-full rounded-lg border py-2 text-lg text-primary hover:bg-primary hover:text-white transition-all duration-300  cursor-pointer border-primary text-center"
       >
         View Details

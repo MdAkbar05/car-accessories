@@ -5,6 +5,20 @@ import SimilarProducts from "@/components/Product/SimilarProducts";
 import TabContent from "@/components/Product/TabContent";
 import { getProductById } from "@/lib/getProductById";
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const product = await getProductById(id);
+  return {
+    title: product?.name.slice(0, 100),
+    description: product?.description,
+    openGraph: {
+      title: product?.name,
+      description: product?.description,
+      images: [product?.images?.[0]],
+    },
+  };
+}
+
 export default async function ProductPage({ params }) {
   const { id } = await params;
   const product = await getProductById(id);
