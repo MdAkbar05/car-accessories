@@ -5,30 +5,30 @@ import BannerSlider from "@/components/Layout/Slider";
 
 export default function Hero() {
   return (
-    <div className="flex my-8">
+    <div className="flex my-8 ">
       <CategoriesDropdown />
-      <div className="flex-8/12">
+      <div className="flex-8/12 ">
         <Breadcrumbs />
-        <section className="sm:max-w-80 md:max-w-6xl mx-auto md:p-6 sm:p-1">
+        <section className="sm:max-w-80 md:max-w-6xl mx-auto  sm:p-1">
           <BannerSlider>
             <HeroBanner
               key={Math.random()}
               alt={"Latest Items"}
-              url={"/assets/dummy/heroBanner.jpg"}
+              url={"/assets/dummy/heroBanner.webp"}
               discount={"28%"}
               navigate={"/products?filter=newArrival"}
             />
             <HeroBanner
               key={Math.random()}
               alt={"Top Purchased"}
-              url={"/assets/dummy/specialCollectionBG.jpg"}
+              url={"/assets/dummy/specialCollectionBG.webp"}
               discount={"16%"}
               navigate={"/products?filter=topSell"}
             />
             <HeroBanner
               key={Math.random()}
               alt={"Most Viewed"}
-              url={"/assets/dummy/heroBanner2.jpg"}
+              url={"/assets/dummy/heroBanner2.webp"}
               discount={"19%"}
               navigate={"/products?filter=mostViewed"}
             />

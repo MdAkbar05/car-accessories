@@ -24,7 +24,13 @@ export default function MobileNav() {
     <nav className="bg-white border-b border-gray-200">
       {/* Mobile Navigation Toggle */}
       <div className="lg:hidden flex items-center justify-between px-4 py-3">
-        <button onClick={toggleMenu} className="text-2xl text-gray-800">
+        <button
+          type="button"
+          id="menu"
+          title="menu"
+          onClick={toggleMenu}
+          className="text-2xl text-gray-800"
+        >
           {isOpen ? <IoMdClose /> : <IoMdMenu />}
         </button>
       </div>
@@ -53,6 +59,9 @@ export default function MobileNav() {
 
             {/* Categories Collapsible */}
             <button
+              type="button"
+              id="categories"
+              title="categories"
               onClick={() => setShowCategories(!showCategories)}
               className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition text-left flex items-center gap-2 w-full"
             >

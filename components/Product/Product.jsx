@@ -6,10 +6,10 @@ import { VscSend } from "react-icons/vsc";
 
 import ImageSection from "@/components/Product/ImageSection";
 import ReviewForm from "@/components/Product/ReviewForm";
+import WishlistButton from "@/components/Product/WishlistButton";
 import useCartStore from "@/store/cartStore";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import WishlistButton from "./WishlistButton";
 
 export default function Product({ product }) {
   const router = useRouter();
@@ -96,6 +96,8 @@ export default function Product({ product }) {
           </div>
           {/* Add to cart  button */}
           <button
+            id="bt"
+            title="Add to cart"
             className=" bg-primary border border-primary  text-white hover:bg-transparent hover:text-primary transition-all lg:p-3 sm:p-2 rounded-lg w-36 text-center cursor-pointer whitespace-nowrap"
             onClick={() => {
               addToCart(product);
@@ -125,7 +127,11 @@ export default function Product({ product }) {
               placeholder="Seller Name &#10; +88010000000000"
             />
           </div>
-          <button className="block bg-primary border border-primary  text-white hover:bg-transparent hover:text-primary transition-all p-3 rounded-lg w-full cursor-pointer">
+          <button
+            id="req"
+            aria-label="RequestButton"
+            className="block bg-primary border border-primary  text-white hover:bg-transparent hover:text-primary transition-all p-3 rounded-lg w-full cursor-pointer"
+          >
             Request for a question
           </button>
         </form>

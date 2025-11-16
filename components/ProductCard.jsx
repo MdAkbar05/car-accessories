@@ -42,9 +42,9 @@ export default function ProductCard({ product }) {
           <b className="text-2xl text-primary font-bold">
             ${product?.price * 0.8}
           </b>
-          <p className="line-through text-red-400">${product?.price}</p>
+          <p className="line-through text-red-500">${product?.price}</p>
         </div>
-        <p className="text-green-400">{product?.stock} in Stock</p>
+        <p className="text-green-500">{product?.stock} in Stock</p>
       </div>
       <Link
         href={`/products/${product?.id}`}

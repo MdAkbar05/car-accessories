@@ -17,10 +17,10 @@ export default async function NewArrivals() {
       <div className="space-y-8 flex-8/12 ">
         <div className="grid grid-cols-1  lg:grid-cols-2 object-center gap-8">
           <SpecialCollectionCard
-            bannerUrl={"/assets/dummy/specialCollectionBG.png"}
+            bannerUrl={"/assets/dummy/specialCollectionBG.webp"}
           />
           <SpecialCollectionCard
-            bannerUrl={"/assets/dummy/specialCollectionBG.png"}
+            bannerUrl={"/assets/dummy/specialCollectionBG.webp"}
           />
         </div>
         <div className="my-8 space-y-4">
@@ -32,7 +32,7 @@ export default async function NewArrivals() {
           </div>
         </div>
         <SpecialCollectionCard
-          bannerUrl={"/assets/dummy/specialCollectionBG2.png"}
+          bannerUrl={"/assets/dummy/specialCollectionBG2.webp"}
         />
       </div>
     </section>

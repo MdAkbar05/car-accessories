@@ -10,6 +10,7 @@ export default function HeroBanner({ url, alt, discount, navigate }) {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        aspectRatio: "16/9",
       }}
       className="sm:px-2 md:px-8 md:py-32 sm:py-4 md:rounded-xl md:w-auto sm:w-96 sm:h-64 md:h-auto "
     >
@@ -34,6 +35,7 @@ export default function HeroBanner({ url, alt, discount, navigate }) {
 
         {/* Button */}
         <Link
+          aria-label="View products"
           href={navigate}
           className="md:px-6 sm:px-3 sm:py-1 md:py-3 bg-primary text-white rounded-4xl shadow hover:bg-blue-700 transition cursor-pointer"
         >

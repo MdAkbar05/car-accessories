@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 export default function Topbar() {
   return (
-    <div className="sm:hidden lg:flex container mx-auto py-2   justify-between   text-base text-black px-2">
+    <div className="sm:hidden lg:flex container mx-auto p-2   justify-between   text-base text-black">
       <div className="space-x-10">
         <Link href={"/abouts"}>About Us</Link>
         <Link className="sm:hidden md:inline" href={"/contacts"}>

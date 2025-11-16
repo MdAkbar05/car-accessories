@@ -20,6 +20,7 @@ export default function FilterSelect({
       ) : (
         <select
           name={name}
+          aria-label={label}
           value={value}
           onChange={onChange}
           className="px-4 py-3 rounded-lg focus:outline-none text-black"

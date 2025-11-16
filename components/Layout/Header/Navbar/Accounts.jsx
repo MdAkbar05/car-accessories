@@ -11,8 +11,8 @@ export default function Accounts({ session }) {
   const { totalItem } = useCartStore((state) => state);
 
   return (
-    <div className="flex justify-around">
-      <div className="sm:hidden lg:flex flex gap-6 items-center">
+    <div className="flex justify-between" title="accounts">
+      <div className="sm:hidden lg:flex flex gap-6 items-center px-2">
         <Link href={"/wishlist"} className="relative">
           <Image
             className=""

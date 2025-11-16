@@ -25,7 +25,10 @@ export default function BannerSlider({ children }) {
       </div>
     ),
     customPaging: (i) => (
-      <button className="w-3 h-3 bg-gray-400 rounded-full hover:bg-blue-600 transition"></button>
+      <button
+        title="Paging"
+        className="w-3 h-3 bg-gray-400 rounded-full hover:bg-blue-600 transition"
+      ></button>
     ),
   };
 

@@ -87,6 +87,7 @@ export default function ImageSection({ images }) {
         {images.map((img, id) => (
           <button
             key={id}
+            title="Thumbnails"
             onClick={() => setMainImage(img)}
             className={`relative lg:h-20 lg:w-20 w-12 h-12 border rounded-lg overflow-hidden transition-all duration-300
               ${

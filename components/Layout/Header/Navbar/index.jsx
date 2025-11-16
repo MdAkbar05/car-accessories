@@ -10,8 +10,8 @@ export default async function Navbar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <nav className="container mx-auto flex justify-between items-center text-black">
-      <div className="sm:hidden md:block flex-3/12 flex items-center gap-2">
+    <nav className="container mx-auto flex justify-between items-center text-black  px-2">
+      <div className="sm:hidden md:block flex-3/12 flex items-center ">
         <BrandLogo />
       </div>
       <MobileNav />

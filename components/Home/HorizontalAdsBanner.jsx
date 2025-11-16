@@ -5,7 +5,7 @@ export default function HorizontalAdsBanner() {
     <Link
       href={"/products"}
       style={{
-        backgroundImage: "url(/assets/dummy/horizontalBanner.jpg)",
+        backgroundImage: "url(/assets/dummy/horizontalBanner.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

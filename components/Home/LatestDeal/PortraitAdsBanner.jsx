@@ -4,7 +4,7 @@ export default function PortraitAdsBanner() {
   return (
     <div
       style={{
-        backgroundImage: "url(/assets/dummy/portraitBanner.jpg)",
+        backgroundImage: "url(/assets/dummy/portraitBanner.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
