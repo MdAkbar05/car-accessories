@@ -33,7 +33,9 @@ export default function ReviewForm({ productId }) {
 
   return (
     <form onSubmit={handleSubmit} className="bg-white   space-y-4">
-      <h3 className="text-2xl font-semibold text-primary">Write a Review</h3>
+      <h3 className="lg:text-2xl text-lg font-semibold text-primary">
+        Write a Review
+      </h3>
 
       <div className="flex gap-2">
         {[1, 2, 3, 4, 5].map((star) => (

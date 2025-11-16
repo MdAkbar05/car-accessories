@@ -9,7 +9,7 @@ export default function OrderCard({ orders = [] }) {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-6 text-gray-800">Orders List</h2>
+      <h2 className="text-xl font-semibold mb-6 text-gray-800">Your Orders</h2>
 
       <div className="overflow-x-auto shadow-md rounded-lg">
         <table className="w-full border-collapse bg-white text-sm text-gray-700">

@@ -15,7 +15,7 @@ export default async function Navbar() {
         <BrandLogo />
       </div>
       <MobileNav />
-      <div className="sm:hidden md:block flex-6/12 border ">
+      <div className="sm:hidden lg:block flex-6/12 border ">
         <Search>
           <Filters />
         </Search>

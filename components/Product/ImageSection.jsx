@@ -43,7 +43,7 @@ export default function ImageSection({ images }) {
     <div className="space-y-4">
       {/* Main Image */}
       <div
-        className="relative h-96 w-96 border rounded-lg overflow-hidden "
+        className="relative lg:h-96 lg:w-96 sm:h-64 sm:w-64 sm:ml-8 lg:ml-0   border rounded-lg overflow-hidden "
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -83,12 +83,12 @@ export default function ImageSection({ images }) {
       </div>
 
       {/* Thumbnails */}
-      <div className="flex gap-5">
+      <div className="flex sm:justify-center lg:justify-start gap-5">
         {images.map((img, id) => (
           <button
             key={id}
             onClick={() => setMainImage(img)}
-            className={`relative h-20 w-20 border rounded-lg overflow-hidden transition-all duration-300
+            className={`relative lg:h-20 lg:w-20 w-12 h-12 border rounded-lg overflow-hidden transition-all duration-300
               ${
                 mainImage === img
                   ? "ring-2 ring-blue-500 scale-105"

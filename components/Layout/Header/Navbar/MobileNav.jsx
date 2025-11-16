@@ -23,7 +23,7 @@ export default function MobileNav() {
   return (
     <nav className="bg-white border-b border-gray-200">
       {/* Mobile Navigation Toggle */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3">
+      <div className="lg:hidden flex items-center justify-between px-4 py-3">
         <button onClick={toggleMenu} className="text-2xl text-gray-800">
           {isOpen ? <IoMdClose /> : <IoMdMenu />}
         </button>
@@ -31,7 +31,7 @@ export default function MobileNav() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="lg:hidden absolute top-14 left-0 z-50 bg-white border-t shadow-lg border-gray-200">
           <div className="flex flex-col gap-1 p-4">
             {/* Home */}
             <Link

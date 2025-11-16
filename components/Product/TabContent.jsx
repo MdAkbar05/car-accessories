@@ -32,12 +32,12 @@ export default function TabContent({ product }) {
   return (
     <>
       {/* Tab Headers */}
-      <div className="flex border-b-2 border-border ">
+      <div className="flex sm:flex-wrap lg:flex-nowrap border-b-2 border-border ">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-8 py-2 text-2xl  transition-colors ${
+            className={`px-8 py-2 lg:text-2xl  transition-colors ${
               activeTab === tab.id
                 ? "border-b-2 border-black text-black font-bold"
                 : "text-gray-300 hover:text-secondary font-medium"

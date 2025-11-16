@@ -28,13 +28,13 @@ export default async function ProfilePage() {
   const { name, email, image } = session.user;
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="max-w-5xl mx-auto lg:p-6 p-2">
       {/* Profile Header */}
       <div className="flex flex-col sm:flex-row items-center gap-6 bg-white shadow-md p-6 rounded-2xl">
         <img
           src={image || "/default-avatar.png"}
           alt={name}
-          className="w-32 h-32 rounded-full object-cover border-4 border-gray-200"
+          className="lg:w-32 lg:h-32 w-24 h-24 rounded-full object-cover border-4 border-gray-200"
         />
         <div>
           <h1 className="text-2xl font-bold text-gray-800">{name}</h1>

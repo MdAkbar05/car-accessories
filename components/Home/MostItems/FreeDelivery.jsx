@@ -8,10 +8,10 @@ export default function FreeDelivery() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="flex justify-between text-tertiary p-8 rounded-2xl"
+      className="flex justify-between sm:flex-col md:flex-row sm:text-center md:text-start text-tertiary p-8 rounded-2xl"
     >
       <div>
-        <h4 className="text-2xl font-normal ">
+        <h4 className="lg:text-2xl md:text-lg sm:text-base font-normal ">
           Get free delivery on your first purchase
         </h4>
         <p className="text-lg text-gray-400">

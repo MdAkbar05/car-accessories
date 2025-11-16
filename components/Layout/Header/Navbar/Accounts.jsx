@@ -12,7 +12,7 @@ export default function Accounts({ session }) {
 
   return (
     <div className="flex justify-around">
-      <div className="sm:hidden md:flex flex gap-6 items-center">
+      <div className="sm:hidden lg:flex flex gap-6 items-center">
         <Link href={"/wishlist"} className="relative">
           <Image
             className=""
@@ -35,10 +35,10 @@ export default function Accounts({ session }) {
       </div>
       {session?.user ? (
         <div className="flex gap-2 justify-end items-center ">
-          {session.user?.image ? (
+          {session?.user?.image ? (
             <Link href={"/profile"}>
               <Image
-                src={session.user?.image}
+                src={session?.user?.image}
                 className="rounded-full w-10 h-10 grid place-items-center text-white"
                 alt="UserIcon"
                 width={24}
@@ -57,13 +57,13 @@ export default function Accounts({ session }) {
           <SignoutButton />
         </div>
       ) : (
-        <div className="flex md:gap-6 sm:gap-2">
+        <Link href={"/login"} className="flex md:gap-6 sm:gap-2">
           <Image src={UserIcon} alt="UserIcon" width={24} height={24} />
-          <Link href={"/login"} className="flex flex-col items-start">
+          <div className="flex flex-col items-start">
             <span className="md:text-lg text-sm text-gray-400 ">Sign in</span>
-            <span className="text-base  md:text-xl font-semibold">Account</span>
-          </Link>
-        </div>
+            <span className="text-s   md:text-xl font-semibold">Account</span>
+          </div>
+        </Link>
       )}
     </div>
   );

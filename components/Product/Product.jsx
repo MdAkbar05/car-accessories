@@ -31,12 +31,16 @@ export default function Product({ product }) {
   }
 
   return (
-    <section className="space-y-4 mt-6 mb-10 flex items-start justify-between">
+    <section className="space-y-4 mt-6 mb-10 flex sm:flex-col lg:flex-row items-start justify-between">
       <ImageSection images={product?.images} />
       <div className="flex-8/12 px-10">
-        <div className="space-y-3">
-          <p className="text-lg text-primary">{product?.category?.name}</p>
-          <h2 className="text-4xl font-semibold">{product?.name}</h2>
+        <div className="lg:space-y-3 sm:space-y-1">
+          <p className="lg:text-lg sm:text-base text-primary">
+            {product?.category?.name}
+          </p>
+          <h2 className="lg:text-4xl sm:text-2xl font-semibold">
+            {product?.name}
+          </h2>
           <p className="text-gray-300">Brand: {product?.brand}</p>
           <div className="flex items-center gap-2">
             <span className="text-2xl font-semibold flex">
@@ -68,7 +72,7 @@ export default function Product({ product }) {
           </div>
           <div className="flex gap-2 items-center">
             {/* Discount 5% off  */}
-            <h2 className="text-3xl font-semibold">
+            <h2 className="lg:text-3xl text-xl font-semibold">
               ${Number(product?.price * 0.95).toFixed(2)}
             </h2>
             <p className="line-through text-gray-400">${product?.price}</p>
@@ -83,7 +87,7 @@ export default function Product({ product }) {
             </p>
           )}
 
-          <div className="flex gap-4 py-8">
+          <div className="flex gap-4 lg:py-8">
             <p className="flex items-center gap-2">
               <IoGitCompareOutline color="gray" size={24} />
               <span>Add to compare</span>
@@ -92,7 +96,7 @@ export default function Product({ product }) {
           </div>
           {/* Add to cart  button */}
           <button
-            className=" bg-primary border border-primary  text-white hover:bg-transparent hover:text-primary transition-all p-3 rounded-lg w-36 text-center cursor-pointer whitespace-nowrap"
+            className=" bg-primary border border-primary  text-white hover:bg-transparent hover:text-primary transition-all lg:p-3 sm:p-2 rounded-lg w-36 text-center cursor-pointer whitespace-nowrap"
             onClick={() => {
               addToCart(product);
               toast.success("Added to cart");
@@ -104,7 +108,7 @@ export default function Product({ product }) {
           <ReviewForm productId={product?.id} />
         </div>
       </div>
-      <div className="border border-border rounded-lg p-6 space-y-8">
+      <div className="sm:hidden md:block border border-border rounded-lg p-6 space-y-8">
         <div className="space-y-2">
           <h4 className="text-2xl text-primary">Contact With Seller</h4>
           <p className="text-lg text-gray-400">

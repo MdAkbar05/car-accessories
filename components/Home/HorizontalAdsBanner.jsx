@@ -10,7 +10,7 @@ export default function HorizontalAdsBanner() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="px-8 py-8 h-72 rounded-xl my-8 flex justify-end items-start"
+      className="px-8 py-8 lg:h-72 md:h-56 h-32 rounded-xl my-8 flex justify-end items-start"
     >
       <span className="inline-block px-4 py-1 text-sm font-medium bg-yellow-400 text-gray-900 rounded-2xl">
         Advertisement
