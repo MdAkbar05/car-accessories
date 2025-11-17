@@ -26,63 +26,6 @@ This project focuses on clean server-first architecture with optimized rendering
 
 ---
 
-## 🗂️ Folder Structure
-
-app/
-├─ api/
-│ ├─ products/
-│ │ └─ route.js
-│ ├─ categories/
-│ │ └─ route.js
-│ ├─ orders/
-│ │ └─ route.js
-│ ├─ wishlist/
-│ │ └─ route.js
-│ ├─ auth/[...nextauth]/
-│ │ └─ route.js
-│ └─ checkout/
-│ └─ route.js
-│
-├─ (routes)/
-│ ├─ products/
-│ │ └─ page.js
-│ ├─ cart/
-│ │ └─ page.js
-│ ├─ checkout/
-│ │ └─ page.js
-│ ├─ wishlist/
-│ │ └─ page.js
-│ └─ orders/
-│ └─ page.js
-│
-├─ components/
-│ ├─ ProductList.jsx
-│ ├─ CartModal.jsx
-│ ├─ Filters.jsx
-│ ├─ ProductCard.jsx
-│ └─ Shared/
-│ ├─ Header.jsx
-│ └─ Footer.jsx
-│
-├─ lib/
-│ ├─ prisma.js
-│ ├─ getProducts.js
-│ └─ utils.js
-│
-├─ store/
-│ ├─ cartStore.js
-│ └─ wishlistStore.js
-│
-└─ prisma/
-├─ schema.prisma
-├─ seed-categories.js
-└─ seed-products.js
-
-markdown
-Copy code
-
----
-
 ## ⚙️ Features
 
 ### 🛒 Product & Category Management
@@ -122,6 +65,23 @@ Copy code
 - `getServerSession(authOptions)` used in protected routes and server components.
 
 ---
+
+## 🚗 Key Features of Car Accessories BD
+
+- 🔋 Wide range of high-quality car batteries  
+- 🛠️ Premium car accessories and spare parts  
+- 🚚 Fast delivery across Bangladesh  
+- 📦 Easy ordering system with secure checkout  
+- 🔍 Smart product filtering and search  
+- ⭐ Customer reviews and rating system  
+- 💳 Multiple payment options  
+- 📱 Fully responsive mobile-friendly design  
+- 🔧 Tools, electronics, interior & exterior accessories  
+- 🛡️ Reliable products from trusted brands  
+- 📝 Detailed product descriptions and specifications  
+- 🎯 User-friendly UI for smooth shopping experience  
+- 🏷️ Regular offers, discounts, and special deals  
+- 🛒 Quick add-to-cart and seamless checkout flow
 
 
 
