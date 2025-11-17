@@ -3,7 +3,7 @@ export default function FreeDelivery() {
   return (
     <div
       style={{
-        backgroundImage: "url(/assets/dummy/FreeDeliveryBG.webp)",
+        backgroundImage: "url(/assets/dummy/freeDeliveryBG.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

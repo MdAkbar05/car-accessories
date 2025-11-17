@@ -30,7 +30,7 @@ export default async function CategoriesDropdown() {
                 <span>{category.name}</span>
               </div>
               <Image
-                className="-rotate-90 "
+                className="-rotate-90 sm:hidden lg:block"
                 src={downArrow}
                 alt="downArrow"
                 width={18}

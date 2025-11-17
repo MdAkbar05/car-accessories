@@ -21,9 +21,9 @@
   --color-tertiary: #f2f3f3;
   --color-black: #01060d;
   --color-border: #e2e8f0;
-  --breakpoint-sm: 340px;
-  --breakpoint-md: 660px;
-  --breakpoint-lg: 964px;
+  --breakpoint-sm: 320px;
+  --breakpoint-md: 680px;
+  --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
 }
 
